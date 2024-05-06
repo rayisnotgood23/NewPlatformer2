@@ -26,5 +26,3 @@ func _ready():
 func _physics_process(delta):
 	input.update()
 	fsm.physics_update(delta)
-	
-
