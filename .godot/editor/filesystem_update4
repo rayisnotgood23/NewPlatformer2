@@ -1,1 +1,3 @@
 res://scenes/main.tscn
+res://scripts/Player/player.gd
+res://scripts/collectable/gold_coin.gd

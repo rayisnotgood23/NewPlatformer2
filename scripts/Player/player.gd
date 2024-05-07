@@ -13,6 +13,8 @@ const JUMP_GRAVITY = 900.0
 const FALL_GRAVITY = 500.0
 const TERMINAL_VELOCITY = 180.0
 
+
+
 var direction :
 	get: return direction
 	set(value):

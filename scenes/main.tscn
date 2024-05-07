@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=49 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -34,6 +34,33 @@
 [ext_resource type="Texture2D" uid="uid://gmaj30g1yrcc" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="32_k7s5v"]
 [ext_resource type="Texture2D" uid="uid://bkta4fuedqsnk" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="33_0v5tv"]
 [ext_resource type="Texture2D" uid="uid://bbrmr88r8k1mm" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="34_h1snm"]
+[ext_resource type="Texture2D" uid="uid://btwi6np85t108" path="res://assets/Pirate Treasure/Sprites/Coin Effect/01.png" id="35_ptbq4"]
+[ext_resource type="Texture2D" uid="uid://bfts7ju7er25b" path="res://assets/Pirate Treasure/Sprites/Coin Effect/02.png" id="36_xny77"]
+[ext_resource type="Texture2D" uid="uid://c6e35v01eek33" path="res://assets/Pirate Treasure/Sprites/Coin Effect/03.png" id="37_8rwec"]
+[ext_resource type="Texture2D" uid="uid://dix58tpmc86kp" path="res://assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="38_mgx02"]
+[ext_resource type="Texture2D" uid="uid://dj24edyw4xjgb" path="res://assets/Pirate Treasure/Sprites/Gold Coin/02.png" id="39_dr10d"]
+[ext_resource type="Texture2D" uid="uid://cv21ycm4b4aws" path="res://assets/Pirate Treasure/Sprites/Gold Coin/03.png" id="40_6jrem"]
+[ext_resource type="Texture2D" uid="uid://b1ujuvcg7ssl0" path="res://assets/Pirate Treasure/Sprites/Gold Coin/04.png" id="41_h8vly"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03blg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_an7ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ja17o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7aiwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_k2uhi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1oqw"]
 texture = ExtResource("1_3uqkv")
@@ -502,6 +529,46 @@ terrain_set_0/terrain_0/name = "Palm Tree Island Ground"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_g1oqw")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2636"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_ptbq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xny77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_8rwec")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_mgx02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dr10d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_6jrem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_h8vly")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_utmj1"]
+radius = 6.08276
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_pf4h0"]
 animations = [{
 "frames": [{
@@ -573,84 +640,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b14qm"]
 size = Vector2(14, 20)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_03blg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("27_an7ef")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_ja17o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_7aiwn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_k2uhi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="Main" type="Node2D"]
 position = Vector2(65, 0)
-
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(1, 0)
-tile_set = SubResource("TileSet_ckuf4")
-format = 2
-layer_0/tile_data = PackedInt32Array(327680, 65536, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 327685, 65536, 4, 327686, 65536, 4, 327687, 655360, 4, 327688, 65536, 2, 327689, 589824, 4, 393215, 65536, 4, 393214, 0, 4, 327690, 65536, 4, 327691, 65536, 4, 327692, 65536, 4, 327693, 65536, 4, 327694, 65536, 4, 327695, 131072, 4, 262151, 0, 0, 262152, 589824, 0, 262153, 131072, 0, 196616, 262144, 0, 131081, 262144, 4, 65546, 262144, 4, 8, 262144, 4, -65529, 262144, 4, -131066, 262144, 4, -196603, 262144, 4, -262137, 262144, 4, -327672, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 262144, 4, 327702, 262144, 4, 327703, 262144, 4, 327704, 262144, 4, 327705, 262144, 4, 327706, 262144, 4, 327707, 262144, 4, 327708, 262144, 4, 327709, 262144, 4, 327710, 262144, 4, 327711, 262144, 4)
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(100, 94)
-collision_mask = 2
-script = ExtResource("1_lkf7o")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_pf4h0")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_b14qm")
-
-[node name="FSM" type="Node" parent="Player"]
-script = ExtResource("18_kakbf")
-
-[node name="Idle" type="Node" parent="Player/FSM"]
-script = ExtResource("19_hqfwx")
-
-[node name="Run" type="Node" parent="Player/FSM"]
-script = ExtResource("20_kqrs8")
-
-[node name="Jump" type="Node" parent="Player/FSM"]
-script = ExtResource("21_weitm")
-
-[node name="Fall" type="Node" parent="Player/FSM"]
-script = ExtResource("22_rkpq1")
-
-[node name="CoyoteTimer" type="Timer" parent="Player/FSM/Fall"]
-process_callback = 0
-wait_time = 0.1
-one_shot = true
-
-[node name="InputHandler" type="Node2D" parent="Player"]
-script = ExtResource("23_pgtq0")
-
-[node name="JumpBufferTimer" type="Timer" parent="Player/InputHandler"]
-process_callback = 0
-wait_time = 0.1
-one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_bottom = 180
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -738,3 +729,74 @@ texture = ExtResource("34_h1snm")
 position = Vector2(176, -194)
 scale = Vector2(0.941729, 1.00714)
 texture = ExtResource("34_h1snm")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1, 0)
+tile_set = SubResource("TileSet_ckuf4")
+format = 2
+layer_0/tile_data = PackedInt32Array(327680, 65536, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 327685, 65536, 4, 327686, 65536, 4, 327687, 655360, 4, 327688, 65536, 2, 327689, 589824, 4, 393215, 65536, 4, 393214, 0, 4, 327690, 65536, 4, 327691, 65536, 4, 327692, 65536, 4, 327693, 65536, 4, 327694, 65536, 4, 327695, 131072, 4, 262151, 0, 0, 262152, 589824, 0, 262153, 131072, 0, 196616, 262144, 0, 131081, 262144, 4, 65546, 262144, 4, 8, 262144, 4, -65529, 262144, 4, -131066, 262144, 4, -196603, 262144, 4, -262137, 262144, 4, -327672, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 262144, 4, 327702, 262144, 4, 327703, 262144, 4, 327704, 262144, 4, 327705, 262144, 4, 327706, 262144, 4, 327707, 262144, 4, 327708, 262144, 4, 327709, 262144, 4, 327710, 262144, 4, 327711, 262144, 4)
+
+[node name="GoldCoin" type="Area2D" parent="."]
+position = Vector2(176, 153)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GoldCoin"]
+position = Vector2(-0.5, -1.5)
+scale = Vector2(1.0625, 0.9375)
+sprite_frames = SubResource("SpriteFrames_m2636")
+animation = &"idle"
+frame_progress = 0.93047
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldCoin"]
+shape = SubResource("CircleShape2D_utmj1")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(100, 94)
+collision_mask = 2
+script = ExtResource("1_lkf7o")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_pf4h0")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_b14qm")
+
+[node name="FSM" type="Node" parent="Player"]
+script = ExtResource("18_kakbf")
+
+[node name="Idle" type="Node" parent="Player/FSM"]
+script = ExtResource("19_hqfwx")
+
+[node name="Run" type="Node" parent="Player/FSM"]
+script = ExtResource("20_kqrs8")
+
+[node name="Jump" type="Node" parent="Player/FSM"]
+script = ExtResource("21_weitm")
+
+[node name="Fall" type="Node" parent="Player/FSM"]
+script = ExtResource("22_rkpq1")
+
+[node name="CoyoteTimer" type="Timer" parent="Player/FSM/Fall"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="InputHandler" type="Node2D" parent="Player"]
+script = ExtResource("23_pgtq0")
+
+[node name="JumpBufferTimer" type="Timer" parent="Player/InputHandler"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_bottom = 180
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
