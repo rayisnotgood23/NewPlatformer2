@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c15ivdy207351"
+path="res://.godot/imported/Collectibles_8.wav-068ee2445b48cd3129b6be5c7ff7c58f.sample"
+
+[deps]
+
+source_file="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/Collectibles_8.wav"
+dest_files=["res://.godot/imported/Collectibles_8.wav-068ee2445b48cd3129b6be5c7ff7c58f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

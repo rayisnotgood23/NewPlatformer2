@@ -1,1 +1,5 @@
 res://scenes/main.tscn
+res://scenes/collectables/sword.gd
+res://scenes/collectables/gold_coin.tscn
+res://scripts/Player/player.gd
+res://scripts/Player/states/player_base_state.gd
