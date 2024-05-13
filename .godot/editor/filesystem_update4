@@ -1,5 +1,7 @@
 res://scenes/main.tscn
-res://scenes/collectables/sword.gd
 res://scenes/collectables/gold_coin.tscn
-res://scripts/Player/player.gd
-res://scripts/Player/states/player_base_state.gd
+res://default_bus_layout.tres
+res://scripts/Player/states/player_jump_state.gd
+res://scripts/collectable/gold_coin.gd
+res://scenes/collectables/sword.gd
+res://scenes/collectables/sword.tscn

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=59 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -51,6 +51,8 @@
 [ext_resource type="Texture2D" uid="uid://bs1rlx60lraoo" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="42_x0x4a"]
 [ext_resource type="Texture2D" uid="uid://belxvm0g5qcno" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="43_hf2gc"]
 [ext_resource type="Texture2D" uid="uid://j3mgql2buqbm" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="44_cakge"]
+[ext_resource type="AudioStream" uid="uid://du2obq7iuff1d" path="res://assets/Jump_3.wav" id="49_sirs3"]
+[ext_resource type="AudioStream" uid="uid://bxfg7rjyowchh" path="res://assets/Steps_2.wav" id="51_jotay"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_03blg"]
 animations = [{
@@ -830,6 +832,10 @@ script = ExtResource("20_kqrs8")
 [node name="Jump" type="Node" parent="Player/FSM"]
 script = ExtResource("21_weitm")
 
+[node name="JumpSFX" type="AudioStreamPlayer" parent="Player/FSM/Jump"]
+stream = ExtResource("49_sirs3")
+bus = &"SFX"
+
 [node name="Fall" type="Node" parent="Player/FSM"]
 script = ExtResource("22_rkpq1")
 
@@ -837,6 +843,10 @@ script = ExtResource("22_rkpq1")
 process_callback = 0
 wait_time = 0.1
 one_shot = true
+
+[node name="LandingSFX" type="AudioStreamPlayer" parent="Player/FSM/Fall"]
+stream = ExtResource("51_jotay")
+bus = &"SFX"
 
 [node name="InputHandler" type="Node2D" parent="Player"]
 script = ExtResource("23_pgtq0")

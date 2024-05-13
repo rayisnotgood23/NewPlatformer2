@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b78h1bijhafe8"]
+[gd_scene load_steps=13 format=3 uid="uid://b78h1bijhafe8"]
 
 [ext_resource type="Script" path="res://scenes/collectables/sword.gd" id="1_dsotx"]
 [ext_resource type="Texture2D" uid="uid://dk556u674g8bc" path="res://assets/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="2_5bohf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://co3t2asqumvms" path="res://assets/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 06.png" id="7_3vim5"]
 [ext_resource type="Texture2D" uid="uid://ivfb7dcdn28h" path="res://assets/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 07.png" id="8_5hfff"]
 [ext_resource type="Texture2D" uid="uid://uo1ogkpqpfao" path="res://assets/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 08.png" id="9_0cdqf"]
+[ext_resource type="AudioStream" uid="uid://b6ub62fst3x8r" path="res://assets/Powerup_4.wav" id="10_gqtpl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qb8ap"]
 animations = [{
@@ -58,4 +59,9 @@ autoplay = "default"
 position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_qhqk2")
 
+[node name="PickupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gqtpl")
+bus = &"SFX"
+
 [connection signal="body_entered" from="." to="." method="_on_player_entered"]
+[connection signal="finished" from="PickupSFX" to="." method="_on_pickup_sfx_finished"]
