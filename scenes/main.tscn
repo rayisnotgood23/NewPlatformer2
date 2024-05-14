@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=64 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bdyep21jy1xkd" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="10_dw83u"]
 [ext_resource type="Texture2D" uid="uid://corx5blv7oj0s" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="11_y4vdg"]
 [ext_resource type="Texture2D" uid="uid://dxyb11i6okpvg" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="12_3vpa6"]
+[ext_resource type="Texture2D" uid="uid://bt3fkvdymrdsx" path="res://icon.svg" id="12_wd4nq"]
+[ext_resource type="Texture2D" uid="uid://dx2xgy3xxh6bx" path="res://assets/Treasure Hunters-2/Wood and Paper UI/Sprites/Prefabs/5.png" id="13_4aknf"]
 [ext_resource type="Texture2D" uid="uid://ds1dt7j5a67ew" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="13_hn7pc"]
 [ext_resource type="PackedScene" uid="uid://bkk3k0uqid83q" path="res://scenes/collectables/gold_coin.tscn" id="13_wphul"]
 [ext_resource type="Texture2D" uid="uid://7hpx43jbmct2" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="14_nted0"]
@@ -51,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://bs1rlx60lraoo" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="42_x0x4a"]
 [ext_resource type="Texture2D" uid="uid://belxvm0g5qcno" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="43_hf2gc"]
 [ext_resource type="Texture2D" uid="uid://j3mgql2buqbm" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="44_cakge"]
+[ext_resource type="AudioStream" uid="uid://bunihr4vg6iu0" path="res://assets/Steps_1.wav" id="48_quyye"]
 [ext_resource type="AudioStream" uid="uid://du2obq7iuff1d" path="res://assets/Jump_3.wav" id="49_sirs3"]
 [ext_resource type="AudioStream" uid="uid://bxfg7rjyowchh" path="res://assets/Steps_2.wav" id="51_jotay"]
 
@@ -73,6 +76,22 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhbuq"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("13_4aknf")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_mfmrr"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_lhbuq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1oqw"]
 texture = ExtResource("1_3uqkv")
@@ -767,101 +786,164 @@ position = Vector2(176, -194)
 scale = Vector2(0.941729, 1.00714)
 texture = ExtResource("34_h1snm")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu"]
+visible = false
+position = Vector2(64, 56)
+texture = ExtResource("12_wd4nq")
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -98.0
+offset_right = 115.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mfmrr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "treasure hunters test"
+
+[node name="Label2" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="Label3" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "New game "
+
+[node name="Label4" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Label5" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+
+[node name="World" type="Node2D" parent="."]
+visible = false
+
+[node name="TileMap" type="TileMap" parent="World"]
 position = Vector2(1, 0)
 tile_set = SubResource("TileSet_ckuf4")
 format = 2
 layer_0/tile_data = PackedInt32Array(327680, 65536, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 327685, 65536, 4, 327686, 65536, 4, 327687, 655360, 4, 327688, 65536, 2, 327689, 589824, 4, 393215, 65536, 4, 393214, 0, 4, 327690, 65536, 4, 327691, 65536, 4, 327692, 65536, 4, 327693, 65536, 4, 327694, 65536, 4, 327695, 131072, 4, 262151, 0, 0, 262152, 589824, 0, 262153, 131072, 0, 196616, 262144, 0, 131081, 262144, 4, 65546, 262144, 4, 8, 262144, 4, -65529, 262144, 4, -131066, 262144, 4, -196603, 262144, 4, -262137, 262144, 4, -327672, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 262144, 4, 327702, 262144, 4, 327703, 262144, 4, 327704, 262144, 4, 327705, 262144, 4, 327706, 262144, 4, 327707, 262144, 4, 327708, 262144, 4, 327709, 262144, 4, 327710, 262144, 4, 327711, 262144, 4)
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="World"]
 
-[node name="GoldCoin5" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin5" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(175, -104)
 
-[node name="GoldCoin" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(199, 152)
 
-[node name="GoldCoin2" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin2" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(239, 120)
 
-[node name="GoldCoin3" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin3" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(303, 56)
 
-[node name="GoldCoin4" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin4" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(335, 24)
 
-[node name="GoldCoin6" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin6" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(271, -168)
 
-[node name="GoldCoin7" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin7" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(247, -40)
 
-[node name="GoldCoin8" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin8" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(135, 152)
 
-[node name="GoldCoin9" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin9" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(39, 152)
 
-[node name="GoldCoin10" parent="Coins" instance=ExtResource("13_wphul")]
+[node name="GoldCoin10" parent="World/Coins" instance=ExtResource("13_wphul")]
 position = Vector2(167, 152)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="World"]
 position = Vector2(-33, 152)
 collision_mask = 2
 script = ExtResource("1_lkf7o")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Player"]
 sprite_frames = SubResource("SpriteFrames_pf4h0")
 animation = &"run_sword"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_b14qm")
 
-[node name="FSM" type="Node" parent="Player"]
+[node name="FSM" type="Node" parent="World/Player"]
 script = ExtResource("18_kakbf")
 
-[node name="Idle" type="Node" parent="Player/FSM"]
+[node name="Idle" type="Node" parent="World/Player/FSM"]
 script = ExtResource("19_hqfwx")
 
-[node name="Run" type="Node" parent="Player/FSM"]
+[node name="Run" type="Node" parent="World/Player/FSM"]
 script = ExtResource("20_kqrs8")
 
-[node name="Jump" type="Node" parent="Player/FSM"]
+[node name="FootstepsSFX" type="AudioStreamPlayer" parent="World/Player/FSM/Run"]
+stream = ExtResource("48_quyye")
+bus = &"SFX"
+
+[node name="FootstepsTimer" type="Timer" parent="World/Player/FSM/Run"]
+wait_time = 0.3
+
+[node name="Jump" type="Node" parent="World/Player/FSM"]
 script = ExtResource("21_weitm")
 
-[node name="JumpSFX" type="AudioStreamPlayer" parent="Player/FSM/Jump"]
+[node name="JumpSFX" type="AudioStreamPlayer" parent="World/Player/FSM/Jump"]
 stream = ExtResource("49_sirs3")
 bus = &"SFX"
 
-[node name="Fall" type="Node" parent="Player/FSM"]
+[node name="Fall" type="Node" parent="World/Player/FSM"]
 script = ExtResource("22_rkpq1")
 
-[node name="CoyoteTimer" type="Timer" parent="Player/FSM/Fall"]
+[node name="CoyoteTimer" type="Timer" parent="World/Player/FSM/Fall"]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="LandingSFX" type="AudioStreamPlayer" parent="Player/FSM/Fall"]
+[node name="LandingSFX" type="AudioStreamPlayer" parent="World/Player/FSM/Fall"]
 stream = ExtResource("51_jotay")
 bus = &"SFX"
 
-[node name="InputHandler" type="Node2D" parent="Player"]
+[node name="InputHandler" type="Node2D" parent="World/Player"]
 script = ExtResource("23_pgtq0")
 
-[node name="JumpBufferTimer" type="Timer" parent="Player/InputHandler"]
+[node name="JumpBufferTimer" type="Timer" parent="World/Player/InputHandler"]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
 limit_bottom = 180
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Sword" parent="." instance=ExtResource("36_o7u56")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Player"]
+
+[node name="Sword" parent="World" instance=ExtResource("36_o7u56")]
 position = Vector2(-9, 152)
+
+[connection signal="timeout" from="World/Player/FSM/Run/FootstepsTimer" to="World/Player/FSM/Run" method="_on_footsteps_timer_timeout"]

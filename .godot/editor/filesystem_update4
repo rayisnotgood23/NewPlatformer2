@@ -2,3 +2,5 @@ res://scenes/main.tscn
 res://scenes/collectables/gold_coin.tscn
 res://scenes/collectables/sword.tscn
 res://scripts/Player/states/player_fall_state.gd
+res://scripts/fsm/fsm.gd
+res://scripts/Player/states/player_run_state.gd
