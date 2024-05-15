@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=66 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -16,10 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://corx5blv7oj0s" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="11_y4vdg"]
 [ext_resource type="Texture2D" uid="uid://dxyb11i6okpvg" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="12_3vpa6"]
 [ext_resource type="Texture2D" uid="uid://bt3fkvdymrdsx" path="res://icon.svg" id="12_wd4nq"]
-[ext_resource type="Texture2D" uid="uid://dx2xgy3xxh6bx" path="res://assets/Treasure Hunters-2/Wood and Paper UI/Sprites/Prefabs/5.png" id="13_4aknf"]
 [ext_resource type="Texture2D" uid="uid://ds1dt7j5a67ew" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="13_hn7pc"]
 [ext_resource type="PackedScene" uid="uid://bkk3k0uqid83q" path="res://scenes/collectables/gold_coin.tscn" id="13_wphul"]
+[ext_resource type="Theme" uid="uid://cx03httacgrw5" path="res://scenes/themes/yellow_board_theme.tres" id="13_ykq7p"]
 [ext_resource type="Texture2D" uid="uid://7hpx43jbmct2" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="14_nted0"]
+[ext_resource type="Theme" uid="uid://bjgwaf4h7tgin" path="res://scenes/themes/banner_theme.tres" id="14_s817p"]
+[ext_resource type="Texture2D" uid="uid://4lf6t04orfqx" path="res://assets/Treasure Hunters-2/Wood and Paper UI/Sprites/Prefabs/8.png" id="15_3not7"]
 [ext_resource type="Texture2D" uid="uid://bbopxhql2pkbs" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/12-Fall Sword/Fall Sword 01.png" id="16_2bmy8"]
 [ext_resource type="Script" path="res://scripts/fsm/fsm.gd" id="18_kakbf"]
 [ext_resource type="Script" path="res://scripts/Player/states/player_idle_state.gd" id="19_hqfwx"]
@@ -77,12 +79,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhbuq"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-texture = ExtResource("13_4aknf")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoe03"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+texture = ExtResource("15_3not7")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 texture_margin_right = 32.0
@@ -90,8 +92,8 @@ texture_margin_bottom = 32.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[sub_resource type="Theme" id="Theme_mfmrr"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_lhbuq")
+[sub_resource type="Theme" id="Theme_sbr33"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_eoe03")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1oqw"]
 texture = ExtResource("1_3uqkv")
@@ -799,41 +801,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = -98.0
-offset_right = 115.0
-offset_bottom = 98.0
+offset_left = -56.0
+offset_top = -82.0
+offset_right = 166.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_mfmrr")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("13_ykq7p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_s817p")
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "treasure hunters test"
 
-[node name="Label2" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MainMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Continue"
+size_flags_vertical = 4
+theme = SubResource("Theme_sbr33")
 
-[node name="Label3" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "New game "
+theme_override_constants/separation = 5
 
-[node name="Label4" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Options"
+text = "new game "
 
-[node name="Label5" type="Label" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Exit"
+text = "options"
+
+[node name="Label2" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "continue"
+
+[node name="Label5" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "exit"
 
 [node name="World" type="Node2D" parent="."]
 visible = false
@@ -945,5 +964,8 @@ editor_draw_drag_margin = true
 
 [node name="Sword" parent="World" instance=ExtResource("36_o7u56")]
 position = Vector2(-9, 152)
+
+[node name="Small-text" type="Sprite2D" parent="."]
+position = Vector2(95, 184)
 
 [connection signal="timeout" from="World/Player/FSM/Run/FootstepsTimer" to="World/Player/FSM/Run" method="_on_footsteps_timer_timeout"]

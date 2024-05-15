@@ -1,6 +1,6 @@
 VBoxContainer
-Label
 PanelContainer
+Label
 Sprite2D
 CanvasLayer
 Node2D
@@ -12,4 +12,3 @@ AnimatedSprite2D
 Area2D
 ParallaxLayer
 ParallaxBackground
-Camera2D
