@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=65 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bdyep21jy1xkd" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="10_dw83u"]
 [ext_resource type="Texture2D" uid="uid://corx5blv7oj0s" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="11_y4vdg"]
 [ext_resource type="Texture2D" uid="uid://dxyb11i6okpvg" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="12_3vpa6"]
+[ext_resource type="Script" path="res://scripts/UI/selection_menu.gd" id="12_udig3"]
 [ext_resource type="Texture2D" uid="uid://bt3fkvdymrdsx" path="res://icon.svg" id="12_wd4nq"]
 [ext_resource type="Texture2D" uid="uid://ds1dt7j5a67ew" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="13_hn7pc"]
 [ext_resource type="PackedScene" uid="uid://bkk3k0uqid83q" path="res://scenes/collectables/gold_coin.tscn" id="13_wphul"]
@@ -774,13 +775,14 @@ texture = ExtResource("34_h1snm")
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("12_udig3")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu"]
 visible = false
 position = Vector2(64, 56)
 texture = ExtResource("12_wd4nq")
 
-[node name="PanelContainer" type="PanelContainer" parent="MainMenu"]
+[node name="MainMenuPanel" type="PanelContainer" parent="MainMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -796,45 +798,45 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("13_ykq7p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer"]
+[node name="MainMenuContainer" type="VBoxContainer" parent="MainMenu/MainMenuPanel"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="TitlePanel" type="PanelContainer" parent="MainMenu/MainMenuPanel/MainMenuContainer"]
 layout_mode = 2
 theme = ExtResource("14_s817p")
 
-[node name="Label" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer"]
+[node name="TitleLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/TitlePanel"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "treasure hunters test"
 
-[node name="PanelContainer2" type="PanelContainer" parent="MainMenu/PanelContainer/VBoxContainer"]
+[node name="SelectionPanel" type="PanelContainer" parent="MainMenu/MainMenuPanel/MainMenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("15_uvi0n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Label3" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="NewGameLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "new game "
 
-[node name="Label4" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="OptionsLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "options"
 
-[node name="Label2" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="ContinueLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "continue"
 
-[node name="Label5" type="Label" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="Label5" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "exit"
