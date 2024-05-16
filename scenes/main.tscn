@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://22o7geln7opk"]
+[gd_scene load_steps=64 format=3 uid="uid://22o7geln7opk"]
 
 [ext_resource type="Texture2D" uid="uid://dk416gpd1gdor" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3uqkv"]
 [ext_resource type="Texture2D" uid="uid://5l2cixw2olcu" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_jsquf"]
@@ -21,7 +21,7 @@
 [ext_resource type="Theme" uid="uid://cx03httacgrw5" path="res://scenes/themes/yellow_board_theme.tres" id="13_ykq7p"]
 [ext_resource type="Texture2D" uid="uid://7hpx43jbmct2" path="res://assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="14_nted0"]
 [ext_resource type="Theme" uid="uid://bjgwaf4h7tgin" path="res://scenes/themes/banner_theme.tres" id="14_s817p"]
-[ext_resource type="Texture2D" uid="uid://4lf6t04orfqx" path="res://assets/Treasure Hunters-2/Wood and Paper UI/Sprites/Prefabs/8.png" id="15_3not7"]
+[ext_resource type="Theme" uid="uid://cl6bwf1xpp3vl" path="res://scenes/themes/paper_theme.tres" id="15_uvi0n"]
 [ext_resource type="Texture2D" uid="uid://bbopxhql2pkbs" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/12-Fall Sword/Fall Sword 01.png" id="16_2bmy8"]
 [ext_resource type="Script" path="res://scripts/fsm/fsm.gd" id="18_kakbf"]
 [ext_resource type="Script" path="res://scripts/Player/states/player_idle_state.gd" id="19_hqfwx"]
@@ -78,22 +78,6 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoe03"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
-texture = ExtResource("15_3not7")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="Theme" id="Theme_sbr33"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_eoe03")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1oqw"]
 texture = ExtResource("1_3uqkv")
@@ -789,6 +773,7 @@ scale = Vector2(0.941729, 1.00714)
 texture = ExtResource("34_h1snm")
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu"]
 visible = false
@@ -828,7 +813,7 @@ text = "treasure hunters test"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = SubResource("Theme_sbr33")
+theme = ExtResource("15_uvi0n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -855,7 +840,6 @@ size_flags_horizontal = 4
 text = "exit"
 
 [node name="World" type="Node2D" parent="."]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="World"]
 position = Vector2(1, 0)
@@ -967,5 +951,65 @@ position = Vector2(-9, 152)
 
 [node name="Small-text" type="Sprite2D" parent="."]
 position = Vector2(95, 184)
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.356863)
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ykq7p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -18
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_s817p")
+
+[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "paused"
+
+[node name="PanelContainer2" type="PanelContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("15_uvi0n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "continue"
+
+[node name="Label2" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "options"
+
+[node name="Label3" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "main menu"
 
 [connection signal="timeout" from="World/Player/FSM/Run/FootstepsTimer" to="World/Player/FSM/Run" method="_on_footsteps_timer_timeout"]
