@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-@export var selection_container : Node
+@onready var selection_container = $MainMenuPanel/MainMenuContainer/SelectionPanel/SelectionContainer
+
 var selection_items
 var selection_index:
 	get: return selection_index
 	set(value):
 		selection_index = clampi(value, 0, selection_items.size() -1)
-		for 1 in selection_items.size():
-			selection_items[1].modulate.a = 1.0 if i == selection_index else .3
+		for i in selection_items.size():
+			selection_items[i].modulate.a = 1.0 if i == selection_index else .3
 
 func _ready():
 	selection_items = selection_container.get_children()

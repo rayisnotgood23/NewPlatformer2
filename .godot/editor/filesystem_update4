@@ -1,8 +1,7 @@
 res://scenes/main.tscn
 res://scenes/themes/yellow_board_theme.tres
 res://scenes/themes/banner_theme.tres
+res://scenes/themes/paper_theme.tres
 res://scenes/collectables/gold_coin.tscn
 res://scenes/collectables/sword.tscn
-res://scripts/Player/states/player_run_state.gd
-res://scripts/scrolling_background.gd
 res://scripts/UI/selection_menu.gd
